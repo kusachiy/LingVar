@@ -16,7 +16,8 @@ namespace Graphics
         public Additions Addition { get; set; }
         public Brush LineColor { get; set; }
 
-        public Term(string name,Brush color, Func<int,double> func)
+
+        public Term(string name,Brush color, Func<int,double> func) 
         {
             Name = name;
             Function = func;
