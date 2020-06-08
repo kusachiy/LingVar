@@ -13,15 +13,17 @@ namespace Graphics
     {
         public string Name { get; set; }
         public Func<int,double> Function { get; set; }
+        public int Center { get; set; }
         public Additions Addition { get; set; }
         public Brush LineColor { get; set; }
 
 
-        public Term(string name, Brush color, Func<int, double> func)
+        public Term(string name, Brush color, Func<int, double> func, int center)
         {
             Name = name;
             Function = func;
             LineColor = color;
+            Center = center;
         }
         public override string ToString()
         {

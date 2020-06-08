@@ -40,21 +40,21 @@ namespace Graphics
                 var con = 7.4;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),50));
             PowerPS.Terms.Add(new Term("средне", Brushes.Yellow, ((s) =>
             {
                 var p = 150;
                 var con = 7.5;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),150));
             PowerPS.Terms.Add(new Term("много", Brushes.Green, ((s) =>
             {
                 var p = 250;
                 var con = 12.2;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),250));
 
             Kilometer.Name = "Пробег";
             Kilometer.Interval = new Interval { LeftBorder = 0, RightBorder = 1000000 };
@@ -64,21 +64,21 @@ namespace Graphics
                 var con = 740;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),50000));
             Kilometer.Terms.Add(new Term("средне", Brushes.Yellow, ((s) =>
             {
                 var p = 175000;
                 var con = 750;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),175000));
             Kilometer.Terms.Add(new Term("много", Brushes.Green, ((s) =>
             {
                 var p = 600000;
                 var con = 1810;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),600000));
 
             Year.Name = "Год выпуска";
             Year.Interval = new Interval { LeftBorder = 1930, RightBorder = 2020 };
@@ -88,21 +88,21 @@ namespace Graphics
                 var con = 6.1;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),60));
             Year.Terms.Add(new Term("Средний возраст", Brushes.Yellow, ((s) =>
             {
                 var p = 15;
                 var con = 2.2;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),15));
             Year.Terms.Add(new Term("Новый", Brushes.Green, ((s) =>
             {
                 var p = 5;
                 var con = 1.1;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),5));
 
 
             Price.Name = "Цена";
@@ -113,21 +113,21 @@ namespace Graphics
                 var con = 101.3;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),1000));
             Price.Terms.Add(new Term("Средняя цена", Brushes.Yellow, ((s) =>
             {
                 var p = 5000;
                 var con = 91.8;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),5000));
             Price.Terms.Add(new Term("Дорогой", Brushes.Green, ((s) =>
             {
                 var p = 25000;
                 var con = 181.5;
                 double a = (p - Math.Pow((p - s) / con, 2)) / p;
                 return a >= 0 ? a : 0;
-            })));
+            }),25000));
 
             #endregion
 
@@ -151,12 +151,12 @@ namespace Graphics
             };
 
            
-             var forec =   KnowledgeBase.ForecastPrice(
+             var forec = KnowledgeBase.ForecastPrice(
                 PowerPS.ActiveTerm(car.powerPS),
                 Kilometer.ActiveTerm(car.kilometer),
-                Year.ActiveTerm(car.yearOfRegistration)
-               
+                Year.ActiveTerm(car.yearOfRegistration)   
                 );
+            MessageBox.Show($"Стоимость машины: {forec.Center}$.");
 
             DrawGraph(rnd, Price);
            
