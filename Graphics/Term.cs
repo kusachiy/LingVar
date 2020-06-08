@@ -17,11 +17,15 @@ namespace Graphics
         public Brush LineColor { get; set; }
 
 
-        public Term(string name,Brush color, Func<int,double> func) 
+        public Term(string name, Brush color, Func<int, double> func)
         {
             Name = name;
             Function = func;
             LineColor = color;
+        }
+        public override string ToString()
+        {
+            return Name; 
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Graphics
         public string Name { get; set; }
         public Interval Interval { get; set; }
         public List<Term> Terms { get; set; }
-        public Func<int, string> ActiveTerm => ((n) =>
+        public Func<int, Term> ActiveTerm => ((n) =>
         {
             Term aTerm = null;
             double maximum = -100;
@@ -36,7 +36,7 @@ namespace Graphics
                     aTerm = term;
                 }
             }
-            return aTerm?.Name;
+            return aTerm;
         });
         public Func<int, double> ActiveTermCoeff => ((n) =>
         {
@@ -54,9 +54,7 @@ namespace Graphics
         });
         public LingVar()
         {
-            Terms = new List<Term>();
-           
-            
+            Terms = new List<Term>();           
         }
     }
 }
